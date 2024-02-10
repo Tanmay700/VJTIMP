@@ -1,0 +1,220 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+html {
+  font-size: 15px;
+}
+
+/* Mobile-first styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 15px;
+}
+
+.container {
+  max-width: 100%; /* Ensure images don't exceed their container */
+}
+
+.container input,
+.container select,
+.container textarea {
+  min-height: 25px;
+  width: 100%;
+  border: 1px solid black !important;
+  padding: 4px;
+}
+
+/* Add a media query for larger screens (e.g., desktops) */
+@media only screen and (min-width: 768px) {
+  .DropDownProfile {
+    top: 5rem;
+    right: 5rem;
+  }
+
+
+
+
+.montserrat {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 15px;
+}
+
+input,
+select,
+textarea {
+  min-height: 25px;
+  width: 300px;
+  /* Adjust as needed */
+  border: 1px solid black !important;
+  padding: 4px;
+}
+
+
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border: 1px solid gray !important;
+  box-shadow: none;
+
+}
+
+.Form {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 150;
+
+}
+
+h2 {
+  font-size: 30px;
+
+}
+
+.DropDownProfile {
+  position: absolute;
+  display: block;
+  font-style: normal;
+  top: 5rem;
+  right: 5rem;
+  width: 100px;
+  /* Adjust the width as needed */
+  padding: 10px;
+  border-radius: 15px;
+  background-color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0.5px 0.5px 3px 0.5px gray;
+}
+
+
+
+
+.DropDownProfile::before {
+  content: '';
+  position: absolute;
+  top: -5%;
+  right: 15px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid white;
+
+
+}
+
+.DropDownProfile:hover {
+
+  box-shadow: 1px 1px 5px 1px gray;
+}
+
+
+.hover-highlight:hover {
+
+  box-shadow: 1px 1px 5px 1px rgba(33, 6, 242, 0.2);
+  cursor: pointer;
+}
+
+.Login:hover {
+  box-shadow: 1px 1px 5px 1px rgba(0, 84, 93, 0.472);
+}
+
+ul {
+  list-style: none;
+}
+
+.Profile:hover {
+  color: rgb(0, 154, 185);
+  cursor: pointer;
+}
+
+
+.Logout:hover {
+  color: rgb(0, 154, 185);
+  cursor: pointer;
+  background-color: white;
+}
+
+.protheader {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.Name {
+  font-size: 17px;
+
+}
+
+/* ... (other styles) */
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox label {
+  margin-right: 10px;
+  /* Adjust the margin as needed */
+  font-size: 13px;
+  /* Adjust the font size as needed */
+}
+
+.checkbox input {
+  margin-right: 5px;
+  /* Adjust the margin as needed */
+  transform: scale(0.8);
+  /* Adjust the scale factor as needed */
+}
+
+.Acc {
+  font-size: 12px;
+}
+
+i {
+  cursor: pointer;
+}
+
+.price {
+  font-size: 25px;
+  font-weight: 600;
+
+}
+
+.rupee {
+  font-size: 15px;
+}
+}
+.buy{
+  width: 170px;
+  height: 60px;
+  font-size: 20px;
+  font-weight: 600;
+  color: beige;
+
+}
+.center{
+  display: flex;
+  padding-left: 190px;
+
+
+}

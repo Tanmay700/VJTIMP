@@ -26,6 +26,7 @@ export const GetProducts = async (filters) => {
         );
         return response.data;
     } catch (error) {
+        console.log("in productapierror",error) 
         return error.message;
 
     }
@@ -51,11 +52,10 @@ export const DeleteProduct = async (id) => {
         return { message: error.message };
     }
 };
-
-//uplodad img
-export const UploadProductImage = async (payload) => {
+// Upload img
+export const UploadProductImage = async (payload, id) => {
     try {
-        const response = await axiosInstance.post("/api/products/upload-image-to-product", payload);
+        const response = await axiosInstance.post(`/api/products/upload-image-to-product?id=${id}`, payload);
         return response.data;
     } catch (error) {
         return error.message;
@@ -83,27 +83,28 @@ export const GetProductsById = async (id) => {
         console.log(response)
         return response.data
 
-    } catch (error) {
+    } catch (error)
+    {
         return error.message
-    }
-}
-//place bid
-export const PlaceNewBid = async (payload) => {
-    try {
-        const response = await axiosInstance.post("/api/bids/place-new-bid", payload)
-        return response.data;
-    } catch (error) {
-        return error.message
-    }
-}
-//get all bids
-export const GetAllBids = async (filters) => {
-    try {
-        const response = await axiosInstance.post("/api/bids/get-all-bid", filters)
-        return response.data
 
-    } catch (error) {
-        return error.message
+    }}
+    //place bid
+    export const PlaceNewBid = async (payload) => {
+        try {
+            const response = await axiosInstance.post("/api/bids/place-new-bid", payload)
+            return response.data;
+        } catch (error) {
+            return error.message
+        }
     }
-}
+    //get all bids
+    export const GetAllBids = async (filters) => {
+        try {
+            const response = await axiosInstance.post("/api/bids/get-all-bid", filters)
+            return response.data
+
+        } catch (error) {
+            return error.message
+        }
+    }
 

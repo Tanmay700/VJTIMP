@@ -42,14 +42,14 @@ function Home() {
 
   return (
     <div className='container'>
-      <div className='grid grid-cols-5 gap-5'>
+      <div className='grid grid-cols-5 gap-5 '>
         {products?.map((product) => (
           <div style={{
             border: '1px solid #ccc', borderRadius: '5px', padding: '10px'
           }} className="flex flex-col gap-1 cursor-pointer hover-highlight"
             key={product._id}
             onClick={() => navigate(`/product/${product._id}`)}>
-            <img src={product.images[0]} className='w-full h-64 object-cover rounded' alt="" />
+            <img src={product.images[0]} className='w-full h-64  object-cover rounded' alt="" />
             <Divider />
             <div>
               <h1>{product.name}</h1>

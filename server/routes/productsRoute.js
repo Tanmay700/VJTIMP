@@ -90,42 +90,38 @@ router.delete("/delete-product/:id", authMiddleware, async (req, res) => {
 });
 
 //get img
-
 const storage = multer.diskStorage({
     filename: function (req, file, callback) {
         callback(null, Date.now() + file.originalname);  //rename file with current time and extension
     }
-})
+});
 
 
 //upload img
 router.post("/upload-image-to-product", authMiddleware, multer({ storage: storage }).single('file'), async (req, res) => {
-
-    console.log("in routet")
     try {
         const result = await cloudinary.uploader.upload(req.file.path, {
             folder: "vjtimp",
         });
-        const productId = req.body.productId;
-        console.log("try")
+        const productId = req.body.productId;  // Make sure the key matches what you're sending from the frontend
         await Product.findByIdAndUpdate(productId, {
             $push: { images: result.secure_url },
-        })
+        });
         res.send({
             success: true,
             message: "Image Uploaded successfully",
             data: result.secure_url,
-        })
+        });
     } catch (error) {
-        console.log(error)
+        console.log("error in backend", error);
         res.send({
-
             success: false,
             message: error.message,
-        })
-
+        });
     }
 });
+
+
 //update product status
 router.put("/update-product-status/:id", authMiddleware, async (req, res) => {
     try {

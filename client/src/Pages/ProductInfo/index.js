@@ -6,11 +6,11 @@ import { Button, Divider, message } from 'antd';
 import { GetAllBids, GetProducts, GetProductsById } from '../../apicalls/products';
 import moment from 'moment';
 import BidModel from './BidModel';
-import useSelection from 'antd/es/table/hooks/useSelection';
 
 
 function ProductInfo() {
     const {user}= useSelector((state)=>state.users)
+
     const[showAddNewBid, setShowAddNewBid]=React.useState(false)
     const dispatch = useDispatch();
     const [selectedImageIndex, setSelectedImageIndex] = React.useState(0)
@@ -20,6 +20,7 @@ function ProductInfo() {
     const getData = async () => {
         try {
             dispatch(SetLoader(true))
+            const bidsResponse = await GetAllBids({product:id})
             const response = await GetProductsById(id)
             dispatch(SetLoader(false));
             if (response.success) {
@@ -30,7 +31,6 @@ function ProductInfo() {
                     bids: bidsResponse.data,
                 });
             }
-            
         } catch (error) {
             dispatch(SetLoader(false))
             message.error(error.message)
@@ -46,7 +46,7 @@ function ProductInfo() {
                 <div className='flex flex-col gap-5'>
                     <img
                         src={product.images[selectedImageIndex]} alt=''
-                        className='w-full h-auto object-cover rounded-md' />
+                        className='image-fluid object-cover rounded-md' />
 
                     <div className='flex gap-5'>
                         {product.images.map((image, index) => {
@@ -74,12 +74,11 @@ function ProductInfo() {
                                 <span className='rupee align-top '>₹</span>  <span className='price'>{product.price}</span>
                                 <Divider/>
                                 <div className='grid grid-cols-2 gap-10 center'>
-  <Button className='bg-orange-600 buy '
-  disabled={user._id===product.seller._id}>
+  <Button className='bg-orange-600 buy ' disabled={user._id === product.seller._id}>
     Buy
   </Button>
 
-  <Button className='bg-yellow-400 buy' onClick={()=> setShowAddNewBid(!showAddNewBid)} disabled={user._id===product.seller._id}>
+  <Button className='bg-yellow-400 buy'  disabled={user._id === product.seller._id} onClick={()=> setShowAddNewBid(!showAddNewBid)}>
     Bid
   </Button>
 </div>

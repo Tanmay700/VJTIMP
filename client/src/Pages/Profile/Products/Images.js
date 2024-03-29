@@ -11,8 +11,9 @@ function Images({
     setShowProductsForm
 }
 ) {
-    const [showPreview = false, setShowPreview] = React.useState(true);
-    const [images = [], setImages] = React.useState(selectedProduct.images)
+    const [showPreview, setShowPreview] = React.useState(true);
+    const [images, setImages] = React.useState([]);
+
     const [file = null, setFile] = React.useState(null);
     const dispatch = useDispatch();
     const upload = async () => {
@@ -42,6 +43,9 @@ function Images({
             message.error(error.message)
         }
 
+       
+
+
     }
     const deleteImage=async(image)=>{
 try {
@@ -63,6 +67,10 @@ try {
     message.error(error.message)
 }
     }
+    React.useEffect(() => {
+        setImages(selectedProduct?.images || []);
+    }, [selectedProduct]);
+    
 
 
     return (

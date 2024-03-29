@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
+
+
 const bidSchema = new mongoose.Schema({
     product: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'product'
+        ref: 'products'
     },
     seller: {
         type: mongoose.Schema.Types.ObjectId,
@@ -27,4 +29,4 @@ const bidSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-module.exports = mongoose.model('bids', bidSchema)
+module.exports =mongoose.model("bids", bidSchema)

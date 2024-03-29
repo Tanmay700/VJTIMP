@@ -42,7 +42,8 @@ function BidModel({
             visible={showBidModal}
             onCancel={() => setShowBidModal(false)} // Use onCancel instead of onCancel
             centered width={600}
-            onOk={() => formRef.current.submit()}
+            onOk={() => formRef.current.submit()
+        }
         >
             <div className='flex flex-col gap-5'>
                 <div>

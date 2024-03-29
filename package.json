@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --config=Scripts/config/webpack.dev.js --watch",
+    "build": "npx nodemon server/server"
+    
   },
   "author": "",
   "license": "ISC",
@@ -27,4 +30,5 @@
   "devDependencies": {
     "nodemon": "^3.0.2"
   }
+  
 }
